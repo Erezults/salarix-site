@@ -1,71 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Support — Salarix</title>
+  <title data-en="Support — Salarix" data-he="תמיכה — Salarix">Support — Salarix</title>
+  <link rel="icon" type="image/png" href="images/app-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="images/app-icon.png">
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Heebo',system-ui,sans-serif;background:#f6f9f9;color:#15212e;line-height:1.7}
-    .header{text-align:center;padding:60px 24px 40px;background:linear-gradient(160deg,#0b1220 0%,#0e4f4a 60%,#14b8a6 130%);color:#fff}
-    .header h1{font-size:34px;font-weight:800}
-    .header p{opacity:.6;margin-top:8px;font-size:14px}
-    .header .home-link{display:inline-block;margin-bottom:16px;color:rgba(255,255,255,.55);font-size:14px;text-decoration:none}
-    .header .home-link:hover{color:#2dd4bf}
-    .content{max-width:760px;margin:0 auto;padding:44px 24px 90px}
-    .contact-card{background:linear-gradient(135deg,#0e7c72,#14b8a6);border-radius:16px;padding:32px;color:#fff;margin-bottom:40px;text-align:center}
-    .contact-card h2{font-size:22px;font-weight:700;margin-bottom:8px}
-    .contact-card p{opacity:.9;font-size:15px;margin-bottom:20px}
-    .contact-card a{display:inline-block;background:#fff;color:#0e7c72;font-weight:700;font-size:15px;padding:12px 28px;border-radius:10px;text-decoration:none}
-    h2.sec{font-size:20px;font-weight:700;margin-top:36px;margin-bottom:16px;color:#0e7c72}
-    .faq{border:1px solid #e2ecea;border-radius:12px;padding:20px 24px;margin-bottom:12px;background:#fff}
-    .faq h3{font-size:15px;font-weight:600;color:#15212e;margin-bottom:8px}
-    .faq p{font-size:14px;color:#566; }
-    .faq a{color:#0e7c72}
-    .back{display:inline-block;margin-top:40px;color:#0e7c72;font-weight:700;text-decoration:none}
-    .back:hover{text-decoration:underline}
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Heebo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-  <div class="header">
-    <a href="/" class="home-link">&larr; Salarix</a>
-    <h1>Support</h1>
-    <p>We're here to help</p>
-  </div>
-  <div class="content">
-    <div class="contact-card">
-      <h2>Contact us</h2>
-      <p>Have a question or need help? Email us and we'll get back to you within 1–2 business days.</p>
-      <a href="mailto:support@erezults.com">support@erezults.com</a>
+  <div class="bg-atmos"></div><div class="bg-grid"></div><div class="bg-grain"></div>
+
+  <nav class="nav"><div class="nav-in">
+    <a class="brand" href="/"><img src="images/app-icon.png" alt="" onerror="this.style.display='none'">Salarix <span class="dot"></span></a>
+    <div class="nav-actions">
+      <a class="nav-link hide-sm" href="/" data-en="Home" data-he="בית">Home</a>
+      <a class="nav-link hide-sm" href="/privacy.html" data-en="Privacy" data-he="פרטיות">Privacy</a>
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="en"><span class="flag">🇺🇸</span>EN</button>
+        <button data-lang="he"><span class="flag">🇮🇱</span>עב</button>
+      </div>
+    </div>
+  </div></nav>
+
+  <header class="legal-hero"><div class="wrap reveal">
+    <span class="kicker" data-en="Help" data-he="עזרה">Help</span>
+    <h1 data-en="Support" data-he="תמיכה">Support</h1>
+    <p class="updated" data-en="We're here to help" data-he="אנחנו כאן לעזור">We're here to help</p>
+  </div></header>
+
+  <main class="wrap prose">
+    <div class="contact-card reveal">
+      <h2 data-en="Contact us" data-he="צור קשר">Contact us</h2>
+      <p data-en="Have a question or need help? Email us and we'll reply within 1–2 business days." data-he="יש שאלה או צריך עזרה? כתוב לנו ונחזור אליך תוך 1–2 ימי עסקים.">Have a question or need help? Email us and we'll reply within 1–2 business days.</p>
+      <a href="mailto:salarix.support@erezults.com">salarix.support@erezults.com</a>
     </div>
 
-    <h2 class="sec">Frequently asked questions</h2>
+    <h2 class="reveal" data-en="Frequently asked questions" data-he="שאלות נפוצות">Frequently asked questions</h2>
 
-    <div class="faq"><h3>How do I add a payslip?</h3><p>Tap the “+ Add payslip” button on the home screen. You can type the details manually, or import a payslip image/PDF and let AI fill the fields for you.</p></div>
+    <div class="faq reveal"><h3 data-en="How do I add a payslip?" data-he="איך מוסיפים תלוש?">How do I add a payslip?</h3><p data-en="Tap “+ Add payslip” on the home screen. Type the details manually, or import a payslip image/PDF and let AI fill them for you." data-he="הקש ״+ הוספת תלוש״ במסך הבית. הקלד ידנית, או ייבא תמונה/PDF של תלוש ותן ל-AI למלא עבורך.">Tap “+ Add payslip” on the home screen. Type the details manually, or import a payslip image/PDF and let AI fill them for you.</p></div>
 
-    <div class="faq"><h3>How does AI payslip import work?</h3><p>Take a photo, scan, or import a PDF of your payslip. Salarix uses Google Gemini to extract the amounts and dates, then pre-fills the form so you can review and edit before saving.</p></div>
+    <div class="faq reveal"><h3 data-en="How does AI import work?" data-he="איך עובד ייבוא ה-AI?">How does AI import work?</h3><p data-en="Take a photo, scan, or import a PDF. Salarix uses Google Gemini to extract the amounts and dates and pre-fills the form so you can review and edit before saving." data-he="צלם, סרוק, או ייבא PDF. Salarix משתמש ב-Google Gemini כדי לחלץ את הסכומים והתאריכים וממלא את הטופס מראש כדי שתוכל לאמת ולערוך לפני שמירה.">Take a photo, scan, or import a PDF. Salarix uses Google Gemini to extract the amounts and dates and pre-fills the form so you can review and edit before saving.</p></div>
 
-    <div class="faq"><h3>What are “files”?</h3><p>Files let you track multiple people or jobs separately (e.g. you and a spouse). Each file has its own payslips, managers, and charts. You can rename any file in the Files screen.</p></div>
+    <div class="faq reveal"><h3 data-en="What are “files”?" data-he="מה הם ״תיקים״?">What are “files”?</h3><p data-en="Files let you track multiple people or jobs separately, each with its own payslips, managers, and charts. You can rename any file in the Files screen." data-he="תיקים מאפשרים לעקוב אחר כמה אנשים או עבודות בנפרד, כל אחד עם תלושים, מנהלים וגרפים משלו. אפשר לשנות שם לכל תיק במסך התיקים.">Files let you track multiple people or jobs separately, each with its own payslips, managers, and charts. You can rename any file in the Files screen.</p></div>
 
-    <div class="faq"><h3>What is raise attribution?</h3><p>When Salarix detects a salary increase, you can attribute it to a source — manager, union, index-linking, or role change — to understand what's driving your pay over time. Open Analytics and tap a detected raise.</p></div>
+    <div class="faq reveal"><h3 data-en="What is raise attribution?" data-he="מה זה ייחוס העלאות?">What is raise attribution?</h3><p data-en="When Salarix detects a salary increase, you can attribute it to a source — manager, union, index-linking, or role change — to understand what's driving your pay. Open Analytics and tap a detected raise." data-he="כשמזוהה העלאת שכר, אפשר לייחס אותה למקור — מנהל, ועד, הצמדה למדד, או שינוי תפקיד — כדי להבין מה מניע את השכר. פתח אנליטיקה והקש על העלאה.">When Salarix detects a salary increase, you can attribute it to a source — manager, union, index-linking, or role change — to understand what's driving your pay. Open Analytics and tap a detected raise.</p></div>
 
-    <div class="faq"><h3>Can I use the app offline?</h3><p>Yes. Salarix is offline-first — add and edit payslips without a connection, and everything syncs automatically when you reconnect.</p></div>
+    <div class="faq reveal"><h3 data-en="Can I use the app offline?" data-he="אפשר להשתמש לא מקוון?">Can I use the app offline?</h3><p data-en="Yes. Salarix is offline-first — add and edit payslips without a connection, and everything syncs automatically when you reconnect." data-he="כן. Salarix הוא offline-first — הוסף וערוך תלושים בלי חיבור, והכול מסתנכרן אוטומטית כשמתחברים מחדש.">Yes. Salarix is offline-first — add and edit payslips without a connection, and everything syncs automatically when you reconnect.</p></div>
 
-    <div class="faq"><h3>How do I export my data?</h3><p>Go to Settings → Data → Export and choose JSON, PDF, or a password-encrypted file.</p></div>
+    <div class="faq reveal"><h3 data-en="How do I export my data?" data-he="איך מייצאים את הנתונים?">How do I export my data?</h3><p data-en="Go to Settings → Data → Export and choose JSON, PDF, or a password-encrypted file." data-he="עבור ל-הגדרות ← נתונים ← ייצוא ובחר JSON, PDF, או קובץ מוצפן בסיסמה.">Go to Settings → Data → Export and choose JSON, PDF, or a password-encrypted file.</p></div>
 
-    <div class="faq"><h3>Is my salary data private?</h3><p>Yes. Data is encrypted in transit and at rest, and protected with Row-Level Security so only you can access it. No ads, no trackers. See our <a href="/privacy.html">Privacy Policy</a>.</p></div>
+    <div class="faq reveal"><h3 data-en="Is my salary data private?" data-he="האם נתוני השכר שלי פרטיים?">Is my salary data private?</h3><p data-en="Yes. Data is encrypted in transit and at rest, and protected with Row-Level Security so only you can access it. No ads, no trackers. See our " data-he="כן. הנתונים מוצפנים בהעברה ובמנוחה, ומוגנים ב-Row-Level Security כך שרק אתה יכול לגשת. בלי פרסומות, בלי טראקרים. ראה את ">Yes. Data is encrypted in transit and at rest, and protected with Row-Level Security so only you can access it. No ads, no trackers. See our <a href='/privacy.html'>Privacy Policy</a>.</p></div>
 
-    <div class="faq"><h3>How do I manage or cancel my subscription?</h3><p>Subscriptions are billed through Apple. Manage or cancel anytime in the App Store: Settings → [your name] → Subscriptions.</p></div>
+    <div class="faq reveal"><h3 data-en="How do I manage or cancel my subscription?" data-he="איך מנהלים או מבטלים מנוי?">How do I manage or cancel my subscription?</h3><p data-en="Subscriptions are billed through Apple. Manage or cancel anytime in the App Store: Settings → [your name] → Subscriptions." data-he="מנויים מחויבים דרך Apple. ניהול או ביטול בכל עת ב-App Store: הגדרות ← [השם שלך] ← מנויים.">Subscriptions are billed through Apple. Manage or cancel anytime in the App Store: Settings → [your name] → Subscriptions.</p></div>
 
-    <div class="faq"><h3>How do I delete my account?</h3><p>Go to Settings → Account → Delete Account. This permanently removes all your data and cannot be undone. You can also request deletion by emailing <a href="mailto:support@erezults.com">support@erezults.com</a>.</p></div>
+    <div class="faq reveal"><h3 data-en="How do I delete my account?" data-he="איך מוחקים חשבון?">How do I delete my account?</h3><p data-en="Go to Settings → Account → Delete Account. This permanently removes all your data and cannot be undone. You can also request deletion by emailing " data-he="עבור ל-הגדרות ← חשבון ← מחיקת חשבון. הפעולה מוחקת לצמיתות את כל הנתונים ואינה הפיכה. אפשר גם לבקש מחיקה במייל ל-">Go to Settings → Account → Delete Account. This permanently removes all your data and cannot be undone. You can also request deletion by emailing <a href='mailto:salarix.support@erezults.com'>salarix.support@erezults.com</a>.</p></div>
 
-    <div class="faq"><h3>I forgot my password</h3><p>On the sign-in screen, tap “Forgot password?” and enter your email. You'll receive a reset link within a few minutes — check your spam folder if it doesn't arrive.</p></div>
+    <div class="faq reveal"><h3 data-en="I forgot my password" data-he="שכחתי סיסמה">I forgot my password</h3><p data-en="On the sign-in screen, tap “Forgot password?” and enter your email. You'll get a reset link within minutes — check spam if it doesn't arrive." data-he="במסך ההתחברות, הקש ״שכחת סיסמה?״ והזן את האימייל. תקבל קישור איפוס תוך דקות — בדוק בספאם אם לא הגיע.">On the sign-in screen, tap “Forgot password?” and enter your email. You'll get a reset link within minutes — check spam if it doesn't arrive.</p></div>
+  </main>
 
-    <a href="/" class="back">&larr; Back to Salarix</a>
-  </div>
+  <footer class="footer"><div class="wrap footer-bot" style="border:0;margin:0">
+    <span>© <span id="year"></span> Erezults · Erez Cohen</span>
+    <span><a href="/" style="color:var(--teal)" data-en="← Back to Salarix" data-he="← חזרה ל-Salarix">← Back to Salarix</a></span>
+  </div></footer>
+
+  <script src="assets/site.js"></script>
 </body>
 </html>
