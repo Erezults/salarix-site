@@ -13,6 +13,11 @@
       var val = el.getAttribute('data-' + lang);
       if (val != null) el.innerHTML = val;
     });
+    // swap bilingual image sources (store screenshots)
+    document.querySelectorAll('img[data-src-en]').forEach(function (img) {
+      var src = img.getAttribute('data-src-' + lang) || img.getAttribute('data-src-en');
+      if (src && img.getAttribute('src') !== src) img.setAttribute('src', src);
+    });
     // swap document title / meta if provided
     var t = document.querySelector('title[data-en]');
     if (t) document.title = t.getAttribute('data-' + lang) || document.title;
@@ -86,8 +91,22 @@
     });
   }
 
+  // store-screenshot placeholders: frames start as labeled placeholders (.ph)
+  // and reveal the image only once it actually loads
+  function initShots() {
+    document.querySelectorAll('.canvas-shot img').forEach(function (img) {
+      var fig = img.closest('.canvas-shot');
+      if (!fig) return;
+      function ok() { fig.classList.remove('ph'); }
+      function bad() { fig.classList.add('ph'); }
+      img.addEventListener('load', ok);
+      img.addEventListener('error', bad);
+      if (img.complete) (img.naturalWidth > 0 ? ok : bad)();
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
-    initLang(); initReveal(); initCounters(); initChart();
+    initLang(); initReveal(); initCounters(); initChart(); initShots();
     document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());
   });
 })();
