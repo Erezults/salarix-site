@@ -5,9 +5,13 @@
   ANY static host: GitHub Pages, Vercel, Netlify, Cloudflare Pages, S3, etc.
   No framework, no build step, no server code.
 
-  Per-app setup: replace the six __PLACEHOLDER__ values — four in the CONFIG <script>
-  below + the two --brand colors in the :root CSS. SUPABASE URL + ANON KEY are PUBLIC
-  (already shipped in your mobile app bundle) — safe to embed.
+  FULLY BILINGUAL: every state shows Hebrew AND English simultaneously (Hebrew
+  first, English beneath it) so the page is understood by the whole audience
+  regardless of browser locale. No locale sniffing.
+
+  Per-app setup: replace the four CONFIG values below + the two --brand colors
+  in :root. SUPABASE URL + ANON KEY are PUBLIC (already shipped in the app
+  bundle) — safe to embed.
 
   Behaviour, driven by the `type` Supabase puts in the link:
     • signup / email_change → deep-link into the SAME app that started the flow
@@ -16,11 +20,11 @@
       GoTrue REST API, so reset works even if the app isn't installed. Then the
       "Open app" button ALSO deep-links via the scheme (NOT a hardcoded store URL).
 -->
-<html lang="en">
+<html lang="he">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Confirm</title>
+<title>Salarix — אימות | Confirm</title>
 <style>
   :root { --brand: #14b8a6; --brand-deep: #0d9488; }
   * { box-sizing: border-box; }
@@ -28,70 +32,90 @@
     align-items:center; justify-content:center; gap:1rem; padding:2rem;
     font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
     background:#f7f6fb; color:#1a1730; text-align:center; }
-  h1 { font-size:1.4rem; font-weight:700; margin:0; }
+  h1 { font-size:1.35rem; font-weight:700; margin:0; }
+  h1 .en { display:block; font-size:1.02rem; font-weight:600; color:#6b7280; margin-top:.2rem; }
   p { color:#555; margin:0; }
+  p .en { display:block; color:#8b8fa3; font-size:.92em; margin-top:.15rem; }
   .icon { font-size:2.4rem; }
-  .card { width:100%; max-width:360px; display:flex; flex-direction:column; gap:.9rem; }
+  .card { width:100%; max-width:380px; display:flex; flex-direction:column; gap:.9rem; }
   input { width:100%; padding:.85rem 1rem; font-size:1rem; border-radius:12px;
-    border:1px solid #e5e7eb; background:#fff; color:#111; outline:none; }
+    border:1px solid #e5e7eb; background:#fff; color:#111; outline:none; text-align:center; }
   input:focus { border-color:var(--brand); }
   .btn { display:inline-block; width:100%; padding:.9rem; font-size:1rem; font-weight:700;
     border-radius:999px; border:none; cursor:pointer; color:#fff; background:var(--brand); text-decoration:none; }
   .btn[disabled] { opacity:.6; cursor:default; }
   .btn-pill { width:auto; padding:.85rem 1.8rem; }
+  .btn .en { font-weight:500; opacity:.85; }
   .err { color:#dc2626; font-size:.85rem; margin:0; }
   .muted { color:#888; font-size:.82rem; text-decoration:none; }
   a.muted:hover { text-decoration:underline; }
+  .he { direction:rtl; unicode-bidi:isolate; }
+  .en { direction:ltr; unicode-bidi:isolate; }
   [hidden] { display:none !important; }
 </style>
 </head>
 <body>
   <!-- ===== CONFIG: replace these four per app (+ the two --brand colors in :root above) ===== -->
   <script>
-    var SUPABASE_URL = 'https://jjokwuimpwgqdxcsfpyt.supabase.co';        // e.g. https://abcd.supabase.co
+    var SUPABASE_URL = 'https://jjokwuimpwgqdxcsfpyt.supabase.co';
     var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impqb2t3dWltcHdncWR4Y3NmcHl0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyMzgyMzEsImV4cCI6MjA5NzgxNDIzMX0.YLgDefKL-_GwLkRJtJSOx1jXADhRXRqe68skVkfq8ak'; // public anon key (safe to embed)
     var DEFAULT_SCHEME = 'salarix';    // fallback if ?scheme= is missing
     var APP_STORE_URL = 'https://apps.apple.com/app/id6783344327';       // optional fallback for "no app installed"
     var MIN_PW = 8;
   </script>
 
-  <p id="loading">Verifying…</p>
+  <p id="loading"><span class="he">מאמת…</span><span class="en">Verifying…</span></p>
 
   <div id="redirecting" hidden>
     <div class="icon">✅</div>
-    <h1 id="r-title">Email confirmed!</h1>
-    <p id="r-sub">Opening the app…</p>
+    <h1><span class="he">האימות הושלם!</span><span class="en">Email confirmed!</span></h1>
+    <p><span class="he">פותח את האפליקציה… אפשר גם פשוט לפתוח אותה ולהתחבר.</span>
+       <span class="en">Opening the app… or just open the app and sign in.</span></p>
     <p class="muted" style="margin-top:1.2rem">
-      Didn't open automatically?
-      <a id="r-open" class="muted" href="#" style="color:var(--brand)">Open the app</a>
+      <a id="r-open" href="#" style="color:var(--brand); text-decoration:none">
+        <span class="he">לא נפתחה אוטומטית? פתח את האפליקציה</span><br/>
+        <span class="en" style="font-size:.9em">Didn't open automatically? Open the app</span>
+      </a>
     </p>
     <p id="r-store-wrap" class="muted" hidden style="margin-top:.25rem">
-      <a id="r-store" class="muted" href="#" style="color:var(--brand)">Get the app on the store</a>
+      <a id="r-store" href="#" style="color:var(--brand); text-decoration:none">
+        <span class="he">אין לך את האפליקציה? הורד מהחנות</span><br/>
+        <span class="en" style="font-size:.9em">Don't have the app? Get it on the store</span>
+      </a>
     </p>
   </div>
 
   <div id="recovery" class="card" hidden>
     <div class="icon">🔑</div>
-    <h1 id="rc-title">Set a new password</h1>
-    <input id="pw" type="password" autocomplete="new-password" placeholder="New password" />
-    <input id="pw2" type="password" autocomplete="new-password" placeholder="Confirm password" />
+    <h1><span class="he">בחרו סיסמה חדשה</span><span class="en">Set a new password</span></h1>
+    <input id="pw" type="password" autocomplete="new-password" placeholder="סיסמה חדשה • New password" />
+    <input id="pw2" type="password" autocomplete="new-password" placeholder="אימות סיסמה • Confirm password" />
     <p id="rc-err" class="err" hidden></p>
-    <button id="rc-submit" class="btn">Update password</button>
+    <button id="rc-submit" class="btn">
+      <span class="he">עדכון סיסמה</span> · <span class="en">Update password</span>
+    </button>
   </div>
 
   <div id="recovery_done" hidden>
     <div class="icon">✅</div>
-    <h1 id="rd-title">Password updated</h1>
-    <p id="rd-sub">Open the app and sign in with your new password.</p>
-    <a id="rd-open" class="btn btn-pill" style="margin-top:.5rem" href="#">Open the app</a>
+    <h1><span class="he">הסיסמה עודכנה</span><span class="en">Password updated</span></h1>
+    <p><span class="he">פתחו את האפליקציה והתחברו עם הסיסמה החדשה.</span>
+       <span class="en">Open the app and sign in with your new password.</span></p>
+    <a id="rd-open" class="btn btn-pill" style="margin-top:.5rem" href="#">
+      <span class="he">פתח את האפליקציה</span> · <span class="en">Open the app</span>
+    </a>
     <br/>
-    <a id="rd-store" class="muted" href="#" style="margin-top:.25rem">Don't have the app? Get it on the store</a>
+    <a id="rd-store" class="muted" href="#" style="margin-top:.25rem">
+      <span class="he">אין לך את האפליקציה? הורד מהחנות</span><br/>
+      <span class="en">Don't have the app? Get it on the store</span>
+    </a>
   </div>
 
   <div id="error" hidden>
     <div class="icon">⚠️</div>
-    <h1>This link is invalid or has expired</h1>
-    <p>Please request a new link from the app.</p>
+    <h1><span class="he">הקישור אינו תקין או שפג תוקפו</span><span class="en">This link is invalid or has expired</span></h1>
+    <p><span class="he">יש לבקש קישור חדש מתוך האפליקציה.</span>
+       <span class="en">Please request a new link from the app.</span></p>
   </div>
 
 <script>
@@ -105,7 +129,6 @@
   var code = qp.get('code');
   var errorDesc = hash.get('error_description') || qp.get('error_description');
   var scheme = qp.get('scheme') || DEFAULT_SCHEME;
-  var isHe = (navigator.language || '').toLowerCase().indexOf('he') === 0;
   var AUTH_BASE = SUPABASE_URL.replace(/\/$/, '') + '/auth/v1';
 
   function show(id) {
@@ -113,10 +136,8 @@
       document.getElementById(x).hidden = (x !== id);
     });
   }
-  function t(he, en) { return isHe ? he : en; }
-  // Localise the static strings
-  document.documentElement.lang = isHe ? 'he' : 'en';
-  if (isHe) document.documentElement.dir = 'rtl';
+  // Bilingual error line: Hebrew + English together
+  function biErr(he, en) { return he + ' · ' + en; }
 
   if (errorDesc) { show('error'); return; }
 
@@ -129,39 +150,29 @@
   // PASSWORD_RECOVERY event from the stored code-verifier). Keep PKCE OFF if you want
   // desktop-without-app reset to work in-page here.
   if (type === 'recovery' && at) {
-    document.getElementById('rc-title').textContent = t('בחרו סיסמה חדשה','Set a new password');
-    document.getElementById('pw').placeholder = t('סיסמה חדשה','New password');
-    document.getElementById('pw2').placeholder = t('אימות סיסמה','Confirm password');
-    document.getElementById('rc-submit').textContent = t('עדכון סיסמה','Update password');
     show('recovery');
     var submit = document.getElementById('rc-submit');
+    var submitHTML = submit.innerHTML;
     function setErr(m){ var e=document.getElementById('rc-err'); e.textContent=m; e.hidden=!m; }
     submit.onclick = function () {
       var pw = document.getElementById('pw').value, pw2 = document.getElementById('pw2').value;
       setErr('');
-      if (pw.length < MIN_PW) return setErr(t('הסיסמה חייבת לפחות '+MIN_PW+' תווים','Password must be at least '+MIN_PW+' characters'));
-      if (pw !== pw2) return setErr(t('הסיסמאות אינן תואמות','Passwords do not match'));
-      submit.disabled = true; submit.textContent = t('מעדכן…','Updating…');
+      if (pw.length < MIN_PW) return setErr(biErr('הסיסמה חייבת לפחות '+MIN_PW+' תווים','Password must be at least '+MIN_PW+' characters'));
+      if (pw !== pw2) return setErr(biErr('הסיסמאות אינן תואמות','Passwords do not match'));
+      submit.disabled = true; submit.textContent = 'מעדכן… · Updating…';
       fetch(AUTH_BASE + '/user', {
         method: 'PUT',
         headers: { 'Content-Type':'application/json', apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + at },
         body: JSON.stringify({ password: pw })
       }).then(function (res) {
         if (!res.ok) return res.json().catch(function(){return{};}).then(function(j){ throw new Error(j.msg||j.error_description||j.message||'Failed'); });
-        // success
-        document.getElementById('rd-title').textContent = t('הסיסמה עודכנה','Password updated');
-        document.getElementById('rd-sub').textContent = t('פתחו את האפליקציה והתחברו עם הסיסמה החדשה.','Open the app and sign in with your new password.');
-        var open = document.getElementById('rd-open');
-        open.textContent = t('פתח את האפליקציה','Open the app');
-        open.href = scheme + '://';                     // ← deep-link to the SAME app (dev/prod)
+        document.getElementById('rd-open').href = scheme + '://';   // ← deep-link to the SAME app (dev/prod)
         var store = document.getElementById('rd-store');
-        if (APP_STORE_URL && APP_STORE_URL.indexOf('__') !== 0) {
-          store.href = APP_STORE_URL;
-          store.textContent = t('אין לך את האפליקציה? הורד מהחנות',"Don't have the app? Get it on the store");
-        } else { store.hidden = true; }
+        if (APP_STORE_URL && APP_STORE_URL.indexOf('__') !== 0) store.href = APP_STORE_URL;
+        else store.hidden = true;
         show('recovery_done');
       }).catch(function (e) {
-        submit.disabled = false; submit.textContent = t('עדכון סיסמה','Update password');
+        submit.disabled = false; submit.innerHTML = submitHTML;
         setErr(e.message || String(e));
       });
     };
@@ -173,15 +184,9 @@
   function relay(url) {
     // The email is ALREADY verified at GoTrue's /verify step (before this redirect),
     // so even on desktop — where scheme:// can't resolve — the account IS confirmed.
-    document.getElementById('r-title').textContent = t('האימות הושלם!','Email confirmed!');
-    document.getElementById('r-sub').textContent = t('פותח את האפליקציה… אפשר גם פשוט לפתוח אותה ולהתחבר.','Opening the app… or just open the app and sign in.');
-    var open = document.getElementById('r-open');
-    open.textContent = t('פתח את האפליקציה','Open the app');
-    open.href = url;
+    document.getElementById('r-open').href = url;
     if (APP_STORE_URL && APP_STORE_URL.indexOf('__') !== 0) {   // desktop / no-app fallback
-      var st = document.getElementById('r-store');
-      st.href = APP_STORE_URL;
-      st.textContent = t('אין לך את האפליקציה? הורד מהחנות', "Don't have the app? Get it on the store");
+      document.getElementById('r-store').href = APP_STORE_URL;
       document.getElementById('r-store-wrap').hidden = false;
     }
     show('redirecting');
