@@ -114,7 +114,10 @@ img{max-width:100%;display:block}
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 22px 50px var(--teal-glow)}
 .btn-ghost{border:1px solid var(--line-strong);color:var(--text)}
 .btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
-.hero-note{font-family:var(--font-mono);font-size:12px;color:var(--faint);margin-top:18px;letter-spacing:.03em}
+.store-badge{display:inline-block;margin-top:22px;transition:transform .3s var(--ease),filter .3s var(--ease)}
+.store-badge:hover{transform:translateY(-3px);filter:drop-shadow(0 14px 30px var(--teal-glow))}
+.store-badge img{display:block;height:52px;width:auto}
+.hero-note{font-family:var(--font-mono);font-size:12px;color:var(--faint);margin-top:14px;letter-spacing:.03em}
 
 /* hero visual: a financial card with mini chart */
 .glass-card{background:linear-gradient(155deg,var(--surface-2),var(--surface));border:1px solid var(--line-strong);
