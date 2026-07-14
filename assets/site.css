@@ -282,6 +282,8 @@ html[data-lang="he"] .only-en{display:none}
 /* ═══ VISIBLE FOCUS (keyboard navigation) ═══ */
 a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visible{
   outline:2px solid var(--teal);outline-offset:3px;border-radius:4px}
+/* skip-link lands focus on #main programmatically — no full-width focus box */
+#main:focus{outline:none}
 
 /* ═══ ACCESSIBILITY WIDGET ═══ */
 .a11y-toggle{position:fixed;bottom:20px;inset-inline-start:20px;z-index:120;width:52px;height:52px;
