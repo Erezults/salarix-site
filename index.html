@@ -17,6 +17,15 @@
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
+  <a class="skip-link" href="#main" data-en="Skip to content" data-he="דלג לתוכן">Skip to content</a>
+  <button id="a11y-toggle" class="a11y-toggle" type="button" aria-expanded="false" aria-controls="a11y-panel" aria-label="Accessibility">♿</button>
+  <div id="a11y-panel" class="a11y-panel" aria-labelledby="a11y-panel-title">
+    <h2 id="a11y-panel-title" data-en="Accessibility" data-he="נגישות">Accessibility</h2>
+    <button type="button" id="a11y-zoom" aria-pressed="false"><span data-en="Increase text size" data-he="הגדלת טקסט">Increase text size</span><span aria-hidden="true">A+</span></button>
+    <button type="button" id="a11y-contrast" aria-pressed="false"><span data-en="High contrast" data-he="ניגודיות גבוהה">High contrast</span><span aria-hidden="true">◐</span></button>
+    <button type="button" id="a11y-motion" aria-pressed="false"><span data-en="Stop animations" data-he="עצירת אנימציות">Stop animations</span><span aria-hidden="true">⏸</span></button>
+    <button type="button" id="a11y-reset"><span data-en="Reset" data-he="איפוס">Reset</span><span aria-hidden="true">↺</span></button>
+  </div>
   <div class="bg-atmos"></div><div class="bg-grid"></div><div class="bg-grain"></div>
 
   <nav class="nav">
@@ -38,7 +47,7 @@
   </nav>
 
   <!-- HERO -->
-  <header class="hero">
+  <header class="hero" id="main">
     <div class="wrap hero-grid">
       <div>
         <span class="kicker reveal" data-en="Smart salary tracking · iPhone &amp; Mac" data-he="מעקב שכר חכם · אייפון ומק">Smart salary tracking · iPhone &amp; Mac</span>
@@ -253,6 +262,7 @@
           <h4 data-en="Legal" data-he="משפטי">Legal</h4>
           <a href="/privacy.html" data-en="Privacy Policy" data-he="מדיניות פרטיות">Privacy Policy</a>
           <a href="/terms.html" data-en="Terms of Use" data-he="תנאי שימוש">Terms of Use</a>
+          <a href="/accessibility.html" data-en="Accessibility Statement" data-he="הצהרת נגישות">Accessibility Statement</a>
         </div>
         <div class="footer-col">
           <h4 data-en="Help" data-he="עזרה">Help</h4>

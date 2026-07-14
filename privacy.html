@@ -11,6 +11,15 @@
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
+  <a class="skip-link" href="#main" data-en="Skip to content" data-he="דלג לתוכן">Skip to content</a>
+  <button id="a11y-toggle" class="a11y-toggle" type="button" aria-expanded="false" aria-controls="a11y-panel" aria-label="Accessibility">♿</button>
+  <div id="a11y-panel" class="a11y-panel" aria-labelledby="a11y-panel-title">
+    <h2 id="a11y-panel-title" data-en="Accessibility" data-he="נגישות">Accessibility</h2>
+    <button type="button" id="a11y-zoom" aria-pressed="false"><span data-en="Increase text size" data-he="הגדלת טקסט">Increase text size</span><span aria-hidden="true">A+</span></button>
+    <button type="button" id="a11y-contrast" aria-pressed="false"><span data-en="High contrast" data-he="ניגודיות גבוהה">High contrast</span><span aria-hidden="true">◐</span></button>
+    <button type="button" id="a11y-motion" aria-pressed="false"><span data-en="Stop animations" data-he="עצירת אנימציות">Stop animations</span><span aria-hidden="true">⏸</span></button>
+    <button type="button" id="a11y-reset"><span data-en="Reset" data-he="איפוס">Reset</span><span aria-hidden="true">↺</span></button>
+  </div>
   <div class="bg-atmos"></div><div class="bg-grid"></div><div class="bg-grain"></div>
 
   <nav class="nav"><div class="nav-in">
@@ -31,7 +40,7 @@
     <p class="updated" data-en="Last updated: 27 June 2026" data-he="עודכן לאחרונה: 27 ביוני 2026">Last updated: 27 June 2026</p>
   </div></header>
 
-  <main class="wrap prose">
+  <main class="wrap prose" id="main">
     <p class="lead-p reveal" data-en="Salarix (“the app”, “we”) is a personal salary-tracking app for iPhone, operated by Erez Cohen / Erezults. This policy explains what we collect, why, and your rights. We do not sell your data, show ads, or use third-party advertising trackers." data-he="‏Salarix (״האפליקציה״, ״אנחנו״) היא אפליקציה אישית למעקב שכר לאייפון, המופעלת על ידי ארז כהן / Erezults. מדיניות זו מסבירה מה אנחנו אוספים, למה, ומהן הזכויות שלך. איננו מוכרים את הנתונים שלך, לא מציגים פרסומות, ולא משתמשים בטראקרים פרסומיים.">Salarix (“the app”, “we”) is a personal salary-tracking app for iPhone, operated by Erez Cohen / Erezults. This policy explains what we collect, why, and your rights. We do not sell your data, show ads, or use third-party advertising trackers.</p>
 
     <div class="reveal">
@@ -89,7 +98,7 @@
 
   <footer class="footer"><div class="wrap footer-bot" style="border:0;margin:0">
     <span>© <span id="year"></span> Erezults · Erez Cohen</span>
-    <span><a href="/" style="color:var(--teal)" data-en="← Back to Salarix" data-he="← חזרה ל-Salarix">← Back to Salarix</a></span>
+    <span><a href="/accessibility.html" style="color:var(--teal)" data-en="Accessibility" data-he="נגישות">Accessibility</a> · <a href="/" style="color:var(--teal)" data-en="← Back to Salarix" data-he="← חזרה ל-Salarix">← Back to Salarix</a></span>
   </div></footer>
 
   <script src="assets/site.js"></script>
